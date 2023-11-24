@@ -12,6 +12,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="public\" />
+    <Folder Include="src\assets\css\" />
     <Folder Include="src\Components\UI\" />
   </ItemGroup>
 </Project>

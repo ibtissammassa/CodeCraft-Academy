@@ -12,7 +12,7 @@ function RootLayout() {
     return (
         <>
             <NavBar />
-            <div>
+            <div style={mainStyles}>
                 <SideBar/>
                 <Outlet />
             </div>

@@ -1,0 +1,38 @@
+.container {
+    padding: 20px 35px; 
+    width: 75%;
+}
+
+p {
+    margin-top: 15px;
+}
+
+span{
+    color:var(--primary-color);
+}
+
+h2 {
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.infosContainer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border-radius: 5px;
+    border: 1px solid #157AFE;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.infosContainer div{
+    display: flex;
+    width: 22%;
+    align-items: center;
+    gap:11px;
+}
+
+.infosContainer div h3{
+    font-size: 13px;
+}

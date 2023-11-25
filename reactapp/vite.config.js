@@ -31,7 +31,7 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '^/weatherforecast': {
+            '^/Elearning': {
                 target: 'https://localhost:7202/',
                 secure: false
             }

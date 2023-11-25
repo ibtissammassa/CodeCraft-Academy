@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 
-
-function SideBar() {
+function SideBar({course }) {
     const containerStyles = {
         position: 'absolute',
         right: '0',
@@ -26,11 +27,19 @@ function SideBar() {
     const subtitleStyles = {
         fontSize: '16px',
     }
+
     return (
         <div style={containerStyles}>
-            <h2 style={headingStyles}>Mastering .NET Development</h2>
+            <h2 style={headingStyles}>{course ? course.title : 'loading ...'}</h2>
             <div style={chaptersStyles}>
                 <h3 style={subtitleStyles}>chapters :</h3>
+                <div>
+                    {course && course.chapters && course.chapters.map((chapter, index) => (
+                        <Link to={`chapter/${index + 1}`} key={index}>
+                            <p>{chapter.title}</p>
+                        </Link>
+                    ))}
+                </div>
             </div>
         </div>
     );

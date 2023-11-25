@@ -12,7 +12,7 @@ function Navbar() {
         display: 'flex',
         width: '100%',
         justifyContent: 'space-between',
-        padding: '25px'
+        padding: '20px 35px'
     }
 
     const barStyles = {

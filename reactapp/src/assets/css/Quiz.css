@@ -1,0 +1,8 @@
+.container {
+    padding: 20px 35px;
+    width: 75%;
+}
+
+h2{
+    color: var(--primary-color);
+}

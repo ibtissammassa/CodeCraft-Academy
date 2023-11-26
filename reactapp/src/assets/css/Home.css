@@ -1,6 +1,7 @@
 .container {
     padding: 20px 35px; 
     width: 75%;
+    height: 100vh;
 }
 
 p {

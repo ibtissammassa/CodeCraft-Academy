@@ -1,5 +1,6 @@
 import logo from '../assets/E-learning.svg'
 import SearchBar from './UI/SearchBar';
+import {Link } from "react-router-dom"; 
 
 function Navbar() {
     const containerStyles = {
@@ -21,10 +22,16 @@ function Navbar() {
         background: 'var(--primary-color, #157AFE)',
         boxShadow: '0px 2px 6px 0px rgba(0, 0, 0, 0.25)'
     }
+
+    const logoContainerStyles = {
+        display: 'flex',
+        alignItems: 'center'
+       
+    }
     return (
         <div style={containerStyles}>
             <div style={topBarStyles}>
-                <img src={logo} alt="Logo" />
+                <Link style={logoContainerStyles} to="/"><img src={logo} alt="Logo" /></Link>
                 <SearchBar />
             </div>           
             <div style={barStyles}></div>

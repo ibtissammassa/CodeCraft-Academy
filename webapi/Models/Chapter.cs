@@ -15,5 +15,11 @@ public partial class Chapter
 
     public string? VideoUrl { get; set; }
 
+    public string? Introduction { get; set; }
+
+    public string? Conclusion { get; set; }
+
+    public string? NextText { get; set; }
+
     public virtual Course? Course { get; set; }
 }

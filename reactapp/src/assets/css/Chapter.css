@@ -18,3 +18,46 @@
   left: 0;
   top: 0;
 }
+
+h3{
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    margin: 2%;
+}
+
+.button {
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.next{
+    background-color: var(--primary-color);
+}
+
+.next span{
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.previous {
+    background-color: #157AFE52;
+}
+
+.previous span{
+    color: var(--primary-color);
+    font-size: 15px;
+    font-weight: 500;
+}

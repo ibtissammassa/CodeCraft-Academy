@@ -7,6 +7,7 @@ import RootLayout from "./layout/RootLayout";
 import Home from "./pages/Home";
 import Chapter from "./pages/Chapter";
 import Quiz from "./pages/Quiz";
+import Certificate from "./pages/Certificate";
 /*
 import NotFound from "./pages/NotFound";*/
 
@@ -61,6 +62,7 @@ function App() {
                 <Route index element={<Home course={courses.length > 0 ? courses[0] : null} />} />
                 <Route path="/chapter/:id" element={<Chapter chapters={courses.length > 0 ? courses[0].chapters : null} />} />
                 <Route path="/quiz/:id" element={<Quiz Quiz={courses.length > 0 ? courses[0].quizQuestions : null} course={courses.length > 0 ? courses[0] : null} />} />
+                <Route path="/Certificate/:id" element={<Certificate />} />
             </Route>
         )
     );

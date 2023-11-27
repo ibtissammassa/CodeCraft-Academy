@@ -40,6 +40,7 @@
     font-weight: 700;
 }
 
-.chapters a.done{
-    color:var(--primary-color);
+.chapters a.done {
+    color: var(--primary-color);
+    font-weight: 500;
 }

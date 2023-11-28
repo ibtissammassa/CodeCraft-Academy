@@ -6,6 +6,7 @@ import NavBar from '../Components/NavBar'
 import SideBar from "../Components/SideBar";
 import Footer from "../Components/Footer";
 
+import loading from '../assets/loading.svg';
 function RootLayout({courses}) {
     const mainStyles = {
         width: '100%',
@@ -19,10 +20,18 @@ function RootLayout({courses}) {
     return (
         <>
             <NavBar />
-            <div style={mainStyles}>
-                <SideBar course={course} />
-                <Outlet />
-            </div>
+            {
+                course ? 
+                    <div style={mainStyles}>
+                        <SideBar course={course} />
+                        <Outlet />
+                    </div>
+                    :
+                    <div style={{display:'flex',justifyContent:'center',alignItems:'center',height:'100vh'}}>
+                        <img src={loading} alt="loading" />
+                    </div>
+            }
+            
             <Footer/>
         </>
     );

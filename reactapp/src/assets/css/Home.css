@@ -17,6 +17,10 @@ h2 {
     margin-top: 20px;
 }
 
+a {
+    color: black;
+}
+
 .infosContainer {
     display: flex;
     width: 100%;
@@ -30,10 +34,22 @@ h2 {
 .infosContainer div{
     display: flex;
     width: 22%;
-    align-items: center;
+    align-items:center;
     gap:11px;
 }
 
 .infosContainer div h3{
     font-size: 13px;
+    margin-top: 0;
+}
+
+li {
+    list-style: inside;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+ul{
+    margin-top: 10px;
+    margin-left: 25px;
 }

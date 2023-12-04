@@ -8,7 +8,7 @@ function Chapter({chapters }) {
     const selectedChapter = chapters?.find(chapter => chapter.chapterId === parseInt(id));
     console.log(selectedChapter);
     if (!selectedChapter) {
-        // Render a loading state or an error message if the chapter isn't found
+        // Render a loading state if the chapter isn't found
         return <div>Loading...</div>;
     }
     const chapterIndex = parseInt(id) - 1;
@@ -46,8 +46,8 @@ function Chapter({chapters }) {
             <p>{selectedChapter.conclusion}</p>
             <p>{selectedChapter.nextText}</p>
             <div className="buttons">
-                <Link className="button previous" to={previousPage}><span>Previous</span></Link>
-                <Link className="button next" to={nextPage}><span>Next</span></Link>
+                <Link onClick={() => window.scrollTo(0, 0)} className="button previous" to={previousPage}><span>Previous</span></Link>
+                <Link onClick={() => window.scrollTo(0, 0)} className="button next" to={nextPage}><span>Next</span></Link>
             </div>
         </div>
     );

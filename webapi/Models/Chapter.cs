@@ -21,5 +21,7 @@ public partial class Chapter
 
     public string? NextText { get; set; }
 
+    public string? ChapterPoints { get; set; }
+
     public virtual Course? Course { get; set; }
 }

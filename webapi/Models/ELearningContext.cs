@@ -34,6 +34,9 @@ public partial class ELearningContext : DbContext
             entity.Property(e => e.ChapterId)
                 .ValueGeneratedNever()
                 .HasColumnName("ChapterID");
+            entity.Property(e => e.ChapterPoints)
+                .HasColumnType("text")
+                .HasColumnName("chapterPoints");
             entity.Property(e => e.Conclusion).HasColumnType("text");
             entity.Property(e => e.Content).HasColumnType("text");
             entity.Property(e => e.CourseId).HasColumnName("CourseID");

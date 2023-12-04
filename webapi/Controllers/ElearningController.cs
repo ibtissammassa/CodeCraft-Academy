@@ -40,7 +40,8 @@ public class ElearningController : ControllerBase
                 VideoUrl = c.VideoUrl,
                 Introduction = c.Introduction,
                 Conclusion = c.Conclusion,
-                NextText = c.NextText
+                NextText = c.NextText,
+                ChapterPoints = c.ChapterPoints
             })
             .ToList();
 

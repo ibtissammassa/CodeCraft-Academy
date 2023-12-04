@@ -9,7 +9,6 @@ function Footer() {
         color: 'white',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',
     }
 
     const headingStyles = {
@@ -35,6 +34,10 @@ function Footer() {
     const aboutStyles = {
         width: '50%',
     }
+
+    const liStyles = {
+        listStyle: 'none',
+    }
     return (
         <div style={containerStyles}>
             <div style={mainStyles}>
@@ -45,17 +48,17 @@ function Footer() {
                 <div>
                     <h3 style={headingStyles}>Quick Links</h3>
                     <ul>
-                        <li>Home</li>
-                        <li>Course</li>
-                        <li>Blog</li>
-                        <li>Contact</li>
+                        <li style={liStyles}>Home</li>
+                        <li style={liStyles}>Course</li>
+                        <li style={liStyles}>Blog</li>
+                        <li style={liStyles}>Contact</li>
                     </ul>
                 </div>
                 <div>
                     <h3 style={headingStyles}>Connect With Us</h3>
                     <ul>
-                        <li>info@yourcompany.example.com</li>
-                        <li>+1(450) 999-1111</li>
+                        <li style={liStyles}>info@yourcompany.example.com</li>
+                        <li style={liStyles}>+1(450) 999-1111</li>
                     </ul>
                 </div>
             </div>

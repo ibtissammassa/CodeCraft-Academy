@@ -23,8 +23,8 @@ function RootLayout({courses}) {
             {
                 course ? 
                     <div style={mainStyles}>
+                        <Outlet/>
                         <SideBar course={course} />
-                        <Outlet />
                     </div>
                     :
                     <div style={{display:'flex',justifyContent:'center',alignItems:'center',height:'100vh'}}>

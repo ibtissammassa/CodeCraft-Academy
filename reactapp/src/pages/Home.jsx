@@ -5,6 +5,7 @@ import share from '../assets/fi_share.svg';
 import time from '../assets/Time.svg'
 import user from '../assets/User.svg'
 import world from '../assets/World.svg'
+import { Link } from 'react-router-dom';
 function Home({ course }) {
 
     const courseInfos = [
@@ -36,10 +37,14 @@ function Home({ course }) {
           <p>{course ? (course.description) : "loading"}</p>
             {
                 course && course.chapters && course.chapters.map((chapter, index) => (
-                    <div key={index }>
-                        <h2><span>Chapter {index + 1}: </span>{chapter.title}</h2>
+                    <div key={index}>
+                        <h2><span>Chapter {index + 1}: </span><Link to={`chapter/${index +1}`}>{chapter.title}</Link></h2>
                         <ul>
-
+                            {
+                                chapter.chapterPoints && chapter.chapterPoints.split('+').map((point, index) => (
+                                    <li key={index}>{point}</li>
+                                ))
+                            }
                         </ul>
                     </div>
                 ))

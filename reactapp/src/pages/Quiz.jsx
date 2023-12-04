@@ -2,6 +2,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import {useState} from 'react';
 import '../assets/css/Quiz.css';
+import { Link } from "react-router-dom";
 
 function Quiz({ Quiz,course }) {
     const { id } = useParams();
@@ -89,6 +90,7 @@ function Quiz({ Quiz,course }) {
                     {submitted && score <= 3 ? `You scored less than 3. Please try again !` : ''}
                 </h4>
                 <div className="buttons">
+                    <div></div>
                     <button className="button submit" type="submit">Submit</button>
                 </div>
             </form>

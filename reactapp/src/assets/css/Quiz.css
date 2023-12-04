@@ -13,8 +13,16 @@
 }
 
 .questionContainer {
+    display: flex;
     align-items: center;
     width: 100%;
+    margin-bottom:10px;
+    margin-top: 20px;
+}
+
+.questionContainer h3{
+    width:90%;
+    margin:0;
 }
 
 .answer {
@@ -46,14 +54,6 @@ form {
     font-weight: 500;
     background-color: #157afe2c;
     width:58px;
-}
-
-.buttons {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 25px;
-    margin: 2%;
 }
 
 .buttons .submit {

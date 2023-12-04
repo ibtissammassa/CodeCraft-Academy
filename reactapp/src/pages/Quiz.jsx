@@ -2,7 +2,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import {useState} from 'react';
 import '../assets/css/Quiz.css';
-import { Link } from "react-router-dom";
 
 function Quiz({ Quiz,course }) {
     const { id } = useParams();
@@ -11,23 +10,22 @@ function Quiz({ Quiz,course }) {
     const [submitted, setSubmitted] = useState(false);
 
     const handleAnswerSelection = (questionIndex, answerIndex) => {
-        const updatedAnswers = [...answers];
-        updatedAnswers[questionIndex] = answerIndex;
-        setAnswers(updatedAnswers);
+        if (submitted) {
+            setSubmitted(false);
+        }
+        const Answers = [...answers];
+        Answers[questionIndex] = answerIndex;
+        setAnswers(Answers);
     };
     let score = 0;
     const handleSubmit = (e) => {
         e.preventDefault();
         const updatedAnswers = [...answers];
         console.log(answers)
+        console.log(updatedAnswers)
         Quiz.forEach((question, index) => {
-            console.log('Correct Answer:', question.correctAnswer);
-            console.log('User Answer:', question.options.split("+")[answers[index]]);
-
             if (question.correctAnswer === question.options.split("+")[answers[index]]) {
                 score += 1;
-            } else {
-                updatedAnswers[index] = -1; // Mark wrong answers
             }
         });
 
@@ -35,14 +33,12 @@ function Quiz({ Quiz,course }) {
         setSubmitted(true);
 
         if (score >= 3) {
-            const courseId = course.courseId; // Replace with the actual courseId
-            navigate(`/Certificate/${courseId}`);
-
+            navigate(`/Certificate/${course.courseId}`);
         }
         console.log(score)
         console.log(answers)
     };
-
+    console.log(answers)
     return (
         <div className="container">
             <h1>{course && course.title}</h1>
@@ -50,6 +46,9 @@ function Quiz({ Quiz,course }) {
             <p>Welcome to the quiz section! Test your understanding of the concepts covered in the course by answering the following five questions. Click 'Submit' to validate your answers and assess your proficiency.</p>
             
             <form onSubmit={handleSubmit}>
+                <h4 className="score">
+                    {submitted && score <= 3 ? `You scored less than 3. Please try again !` : ''}
+                </h4>
                 {
                     Quiz && Quiz.map((question, qIndex) => (
                         <div key={qIndex}>
@@ -86,12 +85,9 @@ function Quiz({ Quiz,course }) {
                         </div>
                     ))
                 }
-                <h4 className="score">
-                    {submitted && score <= 3 ? `You scored less than 3. Please try again !` : ''}
-                </h4>
                 <div className="buttons">
                     <div></div>
-                    <button className="button submit" type="submit">Submit</button>
+                    <button onClick={() => window.scrollTo(0, 0)} className="button submit" type="submit">Submit</button>
                 </div>
             </form>
         </div>

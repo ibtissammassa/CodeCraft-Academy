@@ -9,9 +9,10 @@
     padding: 20px;
 }
 
-.heading {
+.sidebar-container .heading {
     font-size: 20px;
     margin-bottom: 17px;
+    color: black;
 }
 
 .chapters {
@@ -23,6 +24,7 @@
 
 .subtitle {
     font-size: 18px;
+    margin-top:0;
 }
 
 .chapters a {

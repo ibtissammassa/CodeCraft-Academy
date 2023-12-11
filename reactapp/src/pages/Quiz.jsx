@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {useState} from 'react';
 import '../assets/css/Quiz.css';
+import { useStore } from "../store";
 
-function Quiz({ Quiz,course }) {
-    const { id } = useParams();
+function Quiz() {
+    const course = useStore((store) => store.courses[0]);
+    const Quiz = useStore((store) => store.courses[0].quizQuestions);
     const navigate = useNavigate();
     const [answers, setAnswers] = useState(Array(Quiz.length).fill(null));
     const [submitted, setSubmitted] = useState(false);

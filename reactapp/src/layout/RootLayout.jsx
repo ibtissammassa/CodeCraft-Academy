@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Outlet } from "react-router-dom";
+import { useStore } from "../store";
 
 //components
 import NavBar from '../Components/NavBar'
@@ -7,21 +8,22 @@ import SideBar from "../Components/SideBar";
 import Footer from "../Components/Footer";
 
 import loading from '../assets/loading.svg';
-function RootLayout({courses}) {
+function RootLayout() {
     const mainStyles = {
         width: '100%',
         height:'100%',
         display:'flex',
     }
 
-    const course = courses.length > 0 ? courses[0] : null;
+    const course = useStore((store) => store.courses[0]);
+    const isLoading = useStore((store) => store.isLoading);
     console.log(course);
 
     return (
         <>
             <NavBar />
             {
-                course ? 
+                !isLoading ? 
                     <div style={mainStyles}>
                         <Outlet/>
                         <SideBar course={course} />
@@ -31,7 +33,6 @@ function RootLayout({courses}) {
                         <img src={loading} alt="loading" />
                     </div>
             }
-            
             <Footer/>
         </>
     );

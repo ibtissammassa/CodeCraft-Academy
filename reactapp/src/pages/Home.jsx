@@ -6,7 +6,11 @@ import time from '../assets/Time.svg'
 import user from '../assets/User.svg'
 import world from '../assets/World.svg'
 import { Link } from 'react-router-dom';
-function Home({ course }) {
+import { useStore } from "../store";
+import loading from '../assets/loading.svg';
+function Home() {
+    const course = useStore((store) => store.courses[0]);
+    const isLoading = useStore((store) => store.isLoading);
 
     const courseInfos = [
         {
@@ -30,11 +34,18 @@ function Home({ course }) {
             "icon": world,
         },
     ]
+    if (!course || isLoading) {
+        return (
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+                <img src={loading} alt="loading" />
+            </div>
+        )
+    }
     return (
         <div className="container">
-          <h1>{course ? (course.title) : "loading"} </h1>
+          <h1>{course && (course.title)} </h1>
           <img src={stars} />
-          <p>{course ? (course.description) : "loading"}</p>
+          <p>{course && (course.description)}</p>
             {
                 course && course.chapters && course.chapters.map((chapter, index) => (
                     <div key={index}>

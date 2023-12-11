@@ -2,8 +2,10 @@
 import { useParams } from 'react-router-dom';
 import '../assets/css/Chapter.css'
 import { Link } from "react-router-dom";
+import { useStore } from "../store";
 
-function Chapter({chapters }) {
+function Chapter() {
+    const chapters = useStore((store) => store.courses[0].chapters);
     const { id } = useParams();
     const selectedChapter = chapters?.find(chapter => chapter.chapterId === parseInt(id));
     console.log(selectedChapter);

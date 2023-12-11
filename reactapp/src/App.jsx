@@ -1,6 +1,7 @@
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { GetCourses } from "./services/courses";
+import { useStore } from "./store";
 //layouts
 import RootLayout from "./layout/RootLayout";
 
@@ -13,8 +14,9 @@ import Certificate from "./pages/Certificate";
 import NotFound from "./pages/NotFound";*/
 
 function App() {
-    const [courses, setCourses] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const courses = useStore((store) => store.courses);
+    const setCourses = useStore((store) => store.setCourses);
+    const setIsLoading = useStore((store) => store.setIsLoading);
 
     useEffect(() => {
         const fetchCourses = async () => {
@@ -36,10 +38,10 @@ function App() {
 
     const router = createBrowserRouter(
         createRoutesFromElements(
-            <Route path="/" element={<RootLayout courses={courses} />}>
-                <Route index element={<Home course={courses.length > 0 ? courses[0] : null} />} />
-                <Route path="/chapter/:id" element={<Chapter chapters={courses.length > 0 ? courses[0].chapters : null} />} />
-                <Route path="/quiz/:id" element={<Quiz Quiz={courses.length > 0 ? courses[0].quizQuestions : null} course={courses.length > 0 ? courses[0] : null} />} />
+            <Route path="/" element={<RootLayout/>}>
+                <Route index element={<Home/>} />
+                <Route path="/chapter/:id" element={<Chapter/>} />
+                <Route path="/quiz/:id" element={<Quiz />} />
                 <Route path="/Certificate/:id" element={<Certificate />} />
             </Route>
         )

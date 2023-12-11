@@ -1,17 +1,28 @@
 /* eslint-disable react/prop-types */
 import { Link,useLocation } from "react-router-dom";
-import "../assets/css/SideBar.css"; 
+import "../assets/css/SideBar.css";
+import { useStore } from "../store";
+import loading from '../assets/loading.svg';
 
-function SideBar({ course }) {
+function SideBar() {
+    const course = useStore((store) => store.courses[0]);
+    const isLoading = useStore((store) => store.isLoading);
     const location = useLocation();
     const pathParts = location.pathname.split("/"); // Split the path by "/"
     let quiz;
-    if (pathParts[1] == "Quiz") {
+    if (pathParts[1] == "Quiz" || pathParts[1] == "Certificate") {
         quiz = true;
     }
     const chapterPart = pathParts[2]; // Get the part after the second "/"
     const chapterIndex = parseInt(chapterPart, 10); // Parse the chapter number as an integer
 
+    if (!course || isLoading) {
+        return (
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+                <img src={loading} alt="loading" />
+            </div>
+        )
+    }
     return (
         <div className="sidebar-container">
             <h2 className="heading">{course ? course.title : 'loading ...'}</h2>

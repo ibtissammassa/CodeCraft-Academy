@@ -22,7 +22,7 @@ public class ElearningController : ControllerBase
 
     public IActionResult GetCourses()
     {
-        List<Course> courses = _context.Courses.ToList();
+         List<Course> courses = _context.Courses.ToList();
         return StatusCode(StatusCodes.Status200OK, courses);
     }
 

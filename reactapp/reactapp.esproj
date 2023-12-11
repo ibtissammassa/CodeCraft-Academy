@@ -13,6 +13,7 @@
   <ItemGroup>
     <Folder Include="public\" />
     <Folder Include="src\Components\UI\" />
+    <Folder Include="src\services\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptConfiguration Remove="src\NewFolder\**" />

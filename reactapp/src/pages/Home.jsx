@@ -36,7 +36,7 @@ function Home() {
     ]
     if (!course || isLoading) {
         return (
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+            <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
                 <img src={loading} alt="loading" />
             </div>
         )

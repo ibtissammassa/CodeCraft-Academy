@@ -32,7 +32,7 @@ export default defineConfig({
     server: {
         proxy: {
             '^/Elearning': {
-                target: 'https://localhost:7202/',
+                target: 'https://localhost:7202',/*https:\//localhost:7202/*/
                 secure: false
             }
         },

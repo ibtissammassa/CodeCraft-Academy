@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/tissam/databases/E-learning",
+      "type": "mssql.azure",
+      "connectionId": "DbConnectionString"
+    }
+  }
+}

@@ -22,7 +22,11 @@
     margin-bottom: 14px;
 }
 
-li {
+.links li {
+    list-style: none;
+}
+
+.contact li {
     list-style: none;
 }
 
